@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-6">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="src/output.css" rel="stylesheet">
 
@@ -174,7 +174,7 @@
 
 
           <!-- left site -->
-          <div class="text-center lg:text-start lg:w-1/2">
+          <div class="text__left text-center lg:text-start lg:w-1/2">
             <h1 class="lg:text-6xl md:text-[56px] leading-14 text-[40px] font-bold font-mon text-[#2d3748] mb-6">
               Empowering
               <br>
@@ -208,13 +208,13 @@
             </div>
           </div>
           <!-- right side -->
-          <div class="w-full md:w-[687px] lg:w-1/2 h-[387px] md:h-[1030px] lg:h-[820px] ">
+          <div class="img__left w-full md:w-[687px] lg:w-1/2 h-[387px] md:h-[1030px] lg:h-[820px] ">
             <img src="img/photo-1600880292089-90a7e086ee0c.jpeg"
               class="h-full w-full object-cover rounded-2xl shadow-lg" alt="">
           </div>
         </div>
         <!-- bottom ads -->
-        <div class="mt-[60px] flex flex-col items-center justify-center gap-5">
+        <div class="ads__content mt-[60px] flex flex-col items-center justify-center gap-5">
           <h3 class="text-[#718096] text-sm uppercase font-bold font-mon">Trusted by Leading Organizations</h3>
           <div class="flex items-center flex-wrap justify-center gap-[60px]">
             <div class="h-20 w-20">
@@ -236,7 +236,7 @@
 
     <!-- ads section -->
     <section class="py-20 bg-[#F8FAFC]">
-      <div class="max-w-6xl px-4 md:px-6 flex flex-col lg:flex-row gap-10 mx-auto">
+      <div class="max-w-6xl px-4 md:px-6 flex flex-col lg:flex-row gap-10 mx-auto cards__card">
         <!-- card1 -->
         <div class="w-full p-8 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
           <div class="text-center">
@@ -266,15 +266,15 @@
       <div class="max-w-6xl px-4 md:px-6 mx-auto">
         <!-- heading -->
         <div class="flex flex-col text-center gap-4 mb-[60px]">
-          <h1 class="text-[32px] md:text-[40px] font-bold font-mon text-[#2D3748]">
+          <h1 class="bottom__content text-[32px] md:text-[40px] font-bold font-mon text-[#2D3748]">
             NGO Directory
           </h1>
-          <p class="text-[#718096]  text-[17.6px]">
+          <p class="bottom__content text-[#718096]  text-[17.6px]">
             Discover verified NGOs working across different sectors and regions
           </p>
         </div>
         <!-- form fild -->
-        <div class="bg-white gap-5 mb-10 flex flex-col md:flex-row  rounded-lg">
+        <div class="bottom__content bg-white gap-5 mb-10 flex flex-col md:flex-row  rounded-lg">
           <!-- Search Bar -->
           <div class="relative w-full">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -288,26 +288,49 @@
           </div>
 
           <!-- categories -->
-          <select
-            class="px-5 py-4 min-w-[200px] text-[#2d3748] text-base border border-[#E2E8F0] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-            <option>All Categories</option>
-            <option>Education</option>
-            <option>Health</option>
-            <option>Environment</option>
-          </select>
+          <div class="relative inline-block">
+            <!-- Custom-styled select element -->
+            <select
+              class="px-5 py-4 min-w-[200px] text-[#2d3748] text-base border border-[#E2E8F0] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none pr-10 bg-white cursor-pointer">
+              <option>All Categories</option>
+              <option>Education</option>
+              <option>Health</option>
+              <option>Environment</option>
+            </select>
+
+            <!-- Custom dropdown icon -->
+            <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clip-rule="evenodd" />
+              </svg>
+            </div>
+          </div>
 
           <!-- location -->
-          <select
-            class="px-5 py-4 min-w-[200px] text-[#2d3748] text-base border border-[#E2E8F0] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-            <option>All Locations</option>
-            <option>Dhaka</option>
-            <option>Chittagong</option>
-            <option>Rajshahi</option>
-          </select>
+          <div class="relative">
+            <!-- Custom-styled select element -->
+            <select
+              class="px-5 py-4 min-w-[200px] text-[#2d3748] text-base border border-[#E2E8F0] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none pr-10">
+              <option>All Locations</option>
+              <option>Dhaka</option>
+              <option>Chittagong</option>
+              <option>Rajshahi</option>
+            </select>
+
+            <!-- Custom dropdown icon -->
+            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+              <svg class="h-4 w-4 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </div>
         </div>
 
         <!-- cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-[30px] lg:grid-cols-3 mb-[60px]">
+        <div class="cards__card grid grid-cols-1 md:grid-cols-2 gap-[30px] lg:grid-cols-3 mb-[60px]">
           <!-- card1 -->
           <div class="bg-white rounded-2xl shadow-box border border-[#E2E8F0] overflow-hidden">
             <!-- Header with Logo and Name -->
@@ -492,7 +515,7 @@
           </div>
         </div>
         <button
-          class="py-[10px] font-semibold text-white rounded-lg px-6 text-[15px] gap-2 flex items-center bg-primary transition-all duration-200 hover:bg-[#1C56B9] hover:-translate-y-[2px]">
+          class="bottom__content py-[10px] font-semibold text-white rounded-lg px-6 text-[15px] gap-2 flex items-center bg-primary transition-all duration-200 hover:bg-[#1C56B9] hover:-translate-y-[2px]">
           View All NGOs
         </button>
       </div>
@@ -505,17 +528,17 @@
       <div class="max-w-6xl px-4 md:px-6 mx-auto">
         <!-- heading -->
         <div class="flex flex-col text-center gap-4 mb-[60px]">
-          <h1 class="text-[32px] md:text-[40px] font-bold font-mon text-[#2D3748]">
+          <h1 class="bottom__content text-[32px] md:text-[40px] font-bold font-mon text-[#2D3748]">
             Featured Projects
           </h1>
-          <p class="text-[#718096]  text-[17.6px]">
+          <p class="bottom__content text-[#718096]  text-[17.6px]">
             Discover impactful development projects across different sectors
           </p>
         </div>
 
         <div class="">
-          <div class="relative overflow-x-scroll border-b pb-5 mb-10 border-gray-200">
-            <div class="flex md:justify-center">
+          <div class="bottom__content relative overflow-x-scroll border-b pb-5 mb-10 border-gray-200">
+            <div class=" flex md:justify-center">
               <!-- Tab Links -->
               <button class="tab-link relative py-2.5 font-semibold px-6 text-sm text-start text-[#718096]"
                 data-tab="all">
@@ -550,7 +573,7 @@
         </div>
 
         <!-- cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-[30px] lg:grid-cols-3 mb-[60px]">
+        <div class="cards__card grid grid-cols-1 md:grid-cols-2 gap-[30px] lg:grid-cols-3 mb-[60px]">
           <!-- card 1 -->
           <div class="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 group relative">
             <div class="overflow-hidden h-[200px]">
@@ -699,7 +722,7 @@
           </div>
         </div>
         <button
-          class="py-[10px] font-semibold text-white rounded-lg px-6 text-[15px] gap-2 flex items-center bg-primary transition-all duration-200 hover:bg-[#1C56B9] hover:-translate-y-[2px]">
+          class="bottom__content py-[10px] font-semibold text-white rounded-lg px-6 text-[15px] gap-2 flex items-center bg-primary transition-all duration-200 hover:bg-[#1C56B9] hover:-translate-y-[2px]">
           Explore All Projects
         </button>
       </div>
@@ -711,12 +734,16 @@
       <div class="max-w-[1200px] mx-auto px-4 md:px-6">
         <!-- Section Header -->
         <div class="text-center mb-[60px]">
-          <h2 class="text-[32px] font-mon md:text-[40px] font-bold text-[#2d3748] mb-4">Authority Testimonials</h2>
-          <p class="text-lg text-[#718096]">Verified endorsements from government authorities for completed projects</p>
+          <h2 class="bottom__content text-[28px] font-mon md:-[32px] lg:text-[40px] font-bold text-[#2d3748] mb-4">
+            Authority
+            Testimonials</h2>
+          <p class="bottom__content text-lg text-[#718096]">Verified endorsements from government authorities for
+            completed projects</p>
         </div>
 
         <!-- Testimonial Card -->
-        <div class="max-w-[800px] relative mx-auto bg-white p-10 rounded-2xl shadow-box border border-gray-200">
+        <div
+          class="bottom__content max-w-[800px] relative mx-auto bg-white px-5 py-[30px] md:p-10 rounded-2xl shadow-box border border-gray-200">
           <i class="fa-solid fa-quote-right top-5 left-[30px] text-primary opacity-10 text-2xl absolute"></i>
           <!-- Testimonial Content -->
           <div class="mb-8">
@@ -728,7 +755,8 @@
           </div>
           <!-- Author Info -->
           <div class="flex items-center justify-center">
-            <img src="./img/user.jpeg" class="rounded-full object-cover w-[55px] h-[55px]" alt="">
+            <img src="./img/user.jpeg" class="rounded-full object-cover w-[55px] border-[3px] border-white h-[55px]"
+              alt="">
             <div class="ml-4">
               <p class="font-bold text-lg font-mon text-[#2d3748]">Ahmed Rahman</p>
               <p class="text-sm text-[#718096]">Ministry of Education, Northern Region</p>
@@ -737,10 +765,169 @@
         </div>
       </div>
     </section>
+
+    <!-- Contact section -->
+    <section class="py-[100px] bg-primary bg-gradient-to-br from-[#2E6FD9] to-[#1C56B9] relative overflow-hidden">
+      <div class="h-[300px] w-[300px] -top-[150px] -right-[150px] rounded-full bg-[#ffffff0d] absolute z-30"></div>
+      <div class="h-[300px] w-[300px] -bottom-[150px] -left-[150px] rounded-full bg-[#ffffff0d] absolute z-30"></div>
+
+      <div class="max-w-[1200px] mx-auto px-4 md:px-6 text-center">
+        <!-- Heading -->
+        <h2 class="bottom__content text-[40px] font-bold text-white mb-5">Join the Platform Today</h2>
+
+        <!-- Description -->
+        <p class="bottom__content text-lg text-white mb-10 max-w-2xl mx-auto leading-relaxed">
+          Whether you're an NGO looking to showcase your work or an Authority wanting to verify development projects,
+          our platform connects you to a network of verified partners.
+        </p>
+
+        <!-- Buttons -->
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <button
+            class="bottom__content px-6 py-2.5 bg-white text-primary  font-semibold rounded-lg transition-all duration-200  hover:-translate-y-[2px]">
+            Register Your NGO
+          </button>
+          <button
+            class="bottom__content px-6 py-2.5 border border-white text-white font-semibold rounded-lg transition-all duration-200  hover:-translate-y-[2px]">
+            Join as an Authority
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- footer -->
+
+    <footer class="bg-[#2D3748] text-[#ffffffb3] pt-20 pb-10">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <!-- Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[60px]">
+
+          <!-- Column 1: Brand & Description -->
+          <div class="">
+            <div class="text-[#0000ee] flex items-center gap-2 mb-5">
+              <i class="fa-solid fa-handshake text-2xl"></i>
+              <h2 class="text-2xl font-bold">@ntoConnect</h2>
+            </div>
+            <p class="text-[15px] mb-[30px]">
+              Connecting NGOs and Authorities to support verified development projects and foster transparency in the
+              development sector.
+            </p>
+            <div class="flex items-center gap-3">
+              <div
+                class="h-9 w-9 bg-[#ffffff1a]  rounded-full flex items-center justify-center transition-all duration-200 hover:bg-primary hover:-translate-y-[2px] cursor-pointer">
+                <i class="fa-brands text-white fa-facebook-f underline"></i>
+              </div>
+              <div
+                class="h-9 w-9 bg-[#ffffff1a] rounded-full flex items-center justify-center transition-all duration-200 hover:bg-primary hover:-translate-y-[2px] cursor-pointer">
+                <i class="fa-brands text-white fa-twitter underline"></i>
+              </div>
+              <div
+                class="h-9 w-9 bg-[#ffffff1a] rounded-full flex items-center justify-center transition-all duration-200 hover:bg-primary hover:-translate-y-[2px] cursor-pointer">
+                <i class="fa-brands text-white fa-linkedin-in underline"></i>
+              </div>
+              <div
+                class="h-9 w-9 bg-[#ffffff1a] rounded-full flex items-center justify-center transition-all duration-200 hover:bg-primary hover:-translate-y-[2px] cursor-pointer">
+                <i class="fa-brands text-white fa-instagram underline"></i>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links & Services -->
+          <div class="">
+            <h3
+              class="text-xl pb-4 mb-6 font-semibold text-white relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-10 after:bg-[#2E6FD9]">
+              Quick Links
+            </h3>
+            <ul class="flex flex-col gap-[10px]">
+              <li class="py-1"><a href="#"
+                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">Home</a></li>
+              <li class="py-1"><a href="#"
+                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">About Us</a></li>
+              <li class="py-1"><a href="#"
+                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">NGO Directory</a></li>
+              <li class="py-1"><a href="#"
+                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">Projects</a></li>
+              <li class="py-1"><a href="#"
+                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">Testimonials</a></li>
+              <li class="py-1"><a href="#"
+                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">FAQs</a></li>
+            </ul>
+          </div>
+
+          <div class="">
+            <h3
+              class="text-xl pb-4 mb-6 font-semibold text-white relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-10 after:bg-[#2E6FD9]">
+              Services
+            </h3>
+            <ul class="flex flex-col gap-[10px]">
+              <li class="py-1"><a href="#"
+                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">For NGOs</a></li>
+              <li class="py-1"><a href="#"
+                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">For Authorities</a>
+              </li>
+              <li class="py-1"><a href="#"
+                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">Project
+                  Verification</a></li>
+              <li class="py-1"><a href="#"
+                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">Impact Reporting</a>
+              </li>
+              <li class="py-1"><a href="#"
+                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">Partnership
+                  Opportunities</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Contact Info -->
+          <div class="">
+            <h3
+              class="text-xl pb-4 mb-6 font-semibold text-white relative inline-block after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-10 after:bg-[#2E6FD9]">
+              Contact Us
+            </h3>
+
+            <address class="flex flex-col gap-4  not-italic">
+              <p class="flex items-start">
+                <svg class="h-5 w-5 mr-2 text-primary mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                123 Development Street, Dhaka, Bangladesh
+              </p>
+              <p class="flex items-center">
+                <svg class="h-5 w-5 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                info@ngoconnect.org
+              </p>
+              <p class="flex items-center">
+                <svg class="h-5 w-5 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                +882 1234 567890
+              </p>
+            </address>
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="border-t border-[#ffffff1a] mt-[60px] pt-[30px] text-sm text-center text-[#ffffff80]">
+          © 2023 NGOconnect. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+
   </main>
 
   <!-- icon -->
   <script src="https://kit.fontawesome.com/2dfedb0ed0.js" crossorigin="anonymous"></script>
+
+  <!-- scroll -->
+  <script src="scrollreveal.min.js"></script>
 
   <!-- js file  -->
   <script src="./script.js"></script>
