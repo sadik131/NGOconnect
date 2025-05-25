@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+:root {
+  --color-primary: #2e6fd9; /* Example primary color */
+}
+
+.primary {
+  background-color: var(--color-primary);
+}
+
+.container1{
+  @apply mx-auto px-4 md:px-6 max-w-6xl;
+}

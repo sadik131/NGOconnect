@@ -5,12 +5,745 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="src/output.css" rel="stylesheet">
+
+  <!-- font family -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2e6fd9',
+            secondary: '#2CAA8E',
+            text: '#2d3748',
+          },
+          fontFamily: {
+            mon: ['Montserrat', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'custom': '0 1px 3px rgba(0, 0, 0, 0.1)',
+            "lg": "0 10px 15px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.05)",
+            "box": "0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.08)",
+          }
+        }
+      }
+    }
+  </script>
+
 </head>
 
-<body class="p-2">
-  <main>
-    
+<body class="bg-[#F6F4F1] md:p-2 font-inter relative">
+  <main class="bg-white border h-screen">
+
+    <!-- navbar &hero sction -->
+    <section>
+      <nav class="shadow-custom py-5 fixed top-0 right-0 left-0 md:right-2 md:left-2 bg-white z-50">
+        <!-- max-w-6xl mx-auto px-4 lg:px-0 -->
+        <div class="container1">
+          <div class="flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex-shrink-0 text-2xl font-bold text-primary">
+              <i class="fa-solid fa-handshake"></i>
+              <span class="font-mon">NGOconnect</span>
+            </div>
+
+            <!-- Desktop Menu (hidden on mobile) -->
+            <div class="hidden lg:flex items-center space-x-8">
+              <ul class="flex gap-8">
+                <li>
+                  <a href="#" class="relative text-[#2d3748] font-medium hover:text-primary group">
+                    Home
+                    <span
+                      class="absolute left-0 -bottom-0.5 h-0.5 bg-primary w-0 transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="relative text-[#2d3748] font-medium hover:text-primary group">
+                    About
+                    <span
+                      class="absolute left-0 -bottom-0.5 h-0.5 bg-primary w-0 transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="relative text-[#2d3748] font-medium hover:text-primary group">
+                    Directory
+                    <span
+                      class="absolute left-0 -bottom-0.5 h-0.5 bg-primary w-0 transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="relative text-[#2d3748] font-medium hover:text-primary group">
+                    Projects
+                    <span
+                      class="absolute left-0 -bottom-0.5 h-0.5 bg-primary w-0 transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="relative text-[#2d3748] font-medium hover:text-primary group">
+                    Testimonials
+                    <span
+                      class="absolute left-0 -bottom-0.5 h-0.5 bg-primary w-0 transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="relative text-[#2d3748] font-medium hover:text-primary group">
+                    Contact
+                    <span
+                      class="absolute left-0 -bottom-0.5 h-0.5 bg-primary w-0 transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                </li>
+              </ul>
+              <div class="flex gap-4">
+                <button
+                  class="py-[10px] font-semibold rounded-lg px-6 text-[15px] border border-primary text-primary transition-all duration-200 hover:bg-[#2e6fd90d] ">
+                  Register
+                </button>
+                <button
+                  class="py-[10px] font-semibold text-white rounded-lg px-6 text-[15px] gap-2 flex items-center bg-primary transition-all duration-200 hover:bg-[#1C56B9] hover:-translate-y-[2px]">
+                  <i class="fa-solid fa-right-to-bracket"></i>Login
+                </button>
+              </div>
+            </div>
+
+            <div class="lg:hidden flex items-center">
+              <button type="button" id="mobile-menu-button" class="text-text focus:outline-none">
+                <span class="sr-only">Open main menu</span>
+                <i class="fa-solid fa-bars text-2xl"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Overlay and Sidebar -->
+        <div id="mobile-overlay"
+          class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300"></div>
+
+        <div id="mobile-menu"
+          class="fixed top-0 right-0 h-full overflow-y-scroll w-4/5 max-w-sm bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+          <div class="flex justify-end p-4 absolute right-0">
+            <button id="close-menu" class="text-text">
+              <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+          </div>
+          <div class="px-10 pb-10 pt-[100px] space-y-5">
+            <a href="#"
+              class="block py-[10px] border-b border-b-[#E2E8F0] text-lg font-semibold text-[#2d3748] ">Home</a>
+            <a href="#"
+              class="block py-[10px] border-b border-b-[#E2E8F0] text-lg font-semibold text-[#2d3748] ">About</a>
+            <a href="#"
+              class="block py-[10px] border-b border-b-[#E2E8F0] text-lg font-semibold text-[#2d3748] ">Directory</a>
+            <a href="#"
+              class="block py-[10px] border-b border-b-[#E2E8F0] text-lg font-semibold text-[#2d3748] ">Projects</a>
+            <a href="#"
+              class="block py-[10px] border-b border-b-[#E2E8F0] text-lg font-semibold text-[#2d3748] ">Testimonials</a>
+            <a href="#"
+              class="block py-[10px] border-b border-b-[#E2E8F0] text-lg font-semibold text-[#2d3748] ">Contact</a>
+            <div class="pt-8 flex flex-col gap-4">
+              <button class="w-full py-3 font-semibold rounded-lg border border-primary text-primary">
+                Register
+              </button>
+              <button
+                class="w-full py-3 font-semibold text-white rounded-lg gap-2 flex items-center justify-center bg-primary">
+                <i class="fa-solid fa-right-to-bracket"></i>Login
+              </button>
+            </div>
+          </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section class="bg-white pb-20 pt-[140px] lg:pt-40 relative overflow-hidden">
+
+        <!-- top circle -->
+        <div class="h-[300px] w-[300px] -top-[150px] -right-[150px] rounded-full bg-[#2caa8e0d] absolute "></div>
+        <!-- top  -->
+        <div
+          class="relative overflow-hidden flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-[60px] container1">
+
+          <!-- bottom circle -->
+          <div class="h-[200px] w-[200px] -bottom-[100px] left-[10%] rounded-full bg-[#2caa8e0d] absolute "></div>
+
+
+          <!-- left site -->
+          <div class="text-center lg:text-start lg:w-1/2">
+            <h1 class="lg:text-6xl md:text-[56px] leading-14 text-[40px] font-bold font-mon text-[#2d3748] mb-6">
+              Empowering
+              <br>
+              <span class="relative text-primary inline-block">
+                NGOs.
+                <span class="absolute left-0 bottom-0 h-2.5 w-full bg-[#2e6fd91a]"></span>
+              </span>
+              <br>
+              Trusted by <br>
+              <span class="relative text-primary inline-block">
+                Authorities
+                <span class="absolute left-0 bottom-0 h-2.5 w-full bg-[#2e6fd91a]"></span>
+              </span>
+
+            </h1>
+            <p class="text-lg max-w-[500px] font-inter text-[#718096] mx-auto mb-10">
+              Search NGOs, track projects, and verify impact with testimonials from trusted authorities all in one
+              collaborative platform.
+            </p>
+            <div class="flex justify-center lg:justify-start flex-col sm:flex-row gap-4">
+              <button
+                class="px-6 py-2.5 text-[15px] bg-primary hover:bg-[#1C56B9] text-white font-semibold rounded-lg transition duration-200 transform hover:-translate-y-1">
+                <i class="fa-solid fa-user-plus"></i>
+                Join as NGO
+              </button>
+              <button
+                class="px-6 py-2.5 text-[15px] border bg-[#2caa8e] text-white hover:bg-[#2e6fd90d] font-semibold rounded-lg transition duration-200 transform hover:-translate-y-1">
+                <i class="fa-solid fa-shield-halved"></i>
+                Partner as Authority
+              </button>
+            </div>
+          </div>
+          <!-- right side -->
+          <div class="w-full md:w-[687px] lg:w-1/2 h-[387px] md:h-[1030px] lg:h-[820px] ">
+            <img src="img/photo-1600880292089-90a7e086ee0c.jpeg"
+              class="h-full w-full object-cover rounded-2xl shadow-lg" alt="">
+          </div>
+        </div>
+        <!-- bottom ads -->
+        <div class="mt-[60px] flex flex-col items-center justify-center gap-5">
+          <h3 class="text-[#718096] text-sm uppercase font-bold font-mon">Trusted by Leading Organizations</h3>
+          <div class="flex items-center flex-wrap justify-center gap-[60px]">
+            <div class="h-20 w-20">
+              <img src="img/brac-logo.jpg" alt="">
+            </div>
+            <div class="h-20 w-20">
+              <img src="img/images__1_-removebg-preview.png" alt="">
+            </div>
+            <div class="h-20 w-20">
+              <img src="img/images__2_-removebg-preview.png" alt="">
+            </div>
+            <div class="h-20 w-20">
+              <img src="img/360_F_225044038_mRRjftAXNNGeR3jK0IZnfmqTsiMEwrxZ-removebg-preview.png" alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ads section -->
+    <section class="py-20 bg-[#F8FAFC]">
+      <div class="max-w-6xl px-4 md:px-6 flex flex-col lg:flex-row gap-10 mx-auto">
+        <!-- card1 -->
+        <div class="w-full p-8 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
+          <div class="text-center">
+            <p class="text-5xl font-mon font-extrabold text-primary mb-4">500+</p>
+            <p class="text-lg font-bold text-[#718096]">Verified NGOs</p>
+          </div>
+        </div>
+        <!-- card-2 -->
+        <div class="w-full p-8 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
+          <div class="text-center">
+            <p class="text-5xl font-mon font-extrabold text-secondary mb-4">120+</p>
+            <p class="text-lg font-bold text-[#718096]">Active Projects</p>
+          </div>
+        </div>
+        <!-- card-3 -->
+        <div class="w-full p-8 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
+          <div class="text-center">
+            <p class="text-5xl font-mon font-extrabold text-[#DD6B20] mb-4">75+</p>
+            <p class="text-lg font-bold text-[#718096]">Partnering Authorities</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Directory section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-6xl px-4 md:px-6 mx-auto">
+        <!-- heading -->
+        <div class="flex flex-col text-center gap-4 mb-[60px]">
+          <h1 class="text-[32px] md:text-[40px] font-bold font-mon text-[#2D3748]">
+            NGO Directory
+          </h1>
+          <p class="text-[#718096]  text-[17.6px]">
+            Discover verified NGOs working across different sectors and regions
+          </p>
+        </div>
+        <!-- form fild -->
+        <div class="bg-white gap-5 mb-10 flex flex-col md:flex-row  rounded-lg">
+          <!-- Search Bar -->
+          <div class="relative w-full">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <svg class="h-5 w-5 text-[#718096]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <input type="text" placeholder="Search NGOs..."
+              class="block w-full pl-[50px] pr-5 py-4 border border-[#E2E8F0] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+          </div>
+
+          <!-- categories -->
+          <select
+            class="px-5 py-4 min-w-[200px] text-[#2d3748] text-base border border-[#E2E8F0] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            <option>All Categories</option>
+            <option>Education</option>
+            <option>Health</option>
+            <option>Environment</option>
+          </select>
+
+          <!-- location -->
+          <select
+            class="px-5 py-4 min-w-[200px] text-[#2d3748] text-base border border-[#E2E8F0] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            <option>All Locations</option>
+            <option>Dhaka</option>
+            <option>Chittagong</option>
+            <option>Rajshahi</option>
+          </select>
+        </div>
+
+        <!-- cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-[30px] lg:grid-cols-3 mb-[60px]">
+          <!-- card1 -->
+          <div class="bg-white rounded-2xl shadow-box border border-[#E2E8F0] overflow-hidden">
+            <!-- Header with Logo and Name -->
+            <div class="flex items-center p-6 border-b border-gray-100">
+              <div class="w-[70px] h-[70px] rounded-lg flex items-center justify-center mr-5">
+                <img src="img/brac-logo.jpg" alt="BRAC Logo" class="rounded-lg">
+              </div>
+              <div>
+                <div class="flex items-center  gap-2">
+                  <h2 class="text-xl font-bold text-text">BRAC</h2>
+                  <i class="fa-solid fa-circle-check text-[#2CAA8E]"></i>
+                </div>
+                <div class="flex items-center text-[#718096]">
+                  <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <span>Dhaka, Bangladesh</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div class="p-6">
+              <h1 class="mb-6 text-base text-[#718096] leading-relaxed">
+                BRAC is dedicated to alleviating poverty by empowering the poor to bring about change in their own lives
+                through...
+              </h1>
+              <!-- tags -->
+              <div class="mb-6 flex gap-2">
+                <span
+                  class="text-primary bg-[#2e6fd91a] py-1 px-3 text-xs rounded-[20px] font-semibold">Education</span>
+                <span class="text-primary bg-[#2e6fd91a] py-1 px-3 text-xs rounded-[20px] font-semibold">Health</span>
+                <span
+                  class="text-primary bg-[#2e6fd91a] py-1 px-3 text-xs rounded-[20px] font-semibold">Microfinance</span>
+              </div>
+              <!-- start -->
+              <div class="mb-6 flex gap-[15px]">
+                <div class="w-full p-3 text-center bg-[#F8FAFC] rounded-lg">
+                  <h3 class="text-primary text-xl mb-1 font-bold">120</h3>
+                  <h3 class="text-[#718096] text-xs mb-1">Projects</h3>
+                </div>
+                <div class="w-full p-3 text-center bg-[#F8FAFC] rounded-lg">
+                  <h3 class="text-primary text-xl mb-1 font-bold">120</h3>
+                  <h3 class="text-[#718096] text-xs mb-1">Projects</h3>
+                </div>
+              </div>
+              <div class="flex justify-between gap-4">
+                <button
+                  class="py-[10px] font-semibold rounded-lg px-6 text-[15px] border border-primary text-primary transition-all duration-200 hover:bg-[#2e6fd90d] ">
+                  View Profile
+                </button>
+                <button
+                  class="py-[10px] font-semibold text-white rounded-lg px-6 text-[15px] gap-2 flex items-center bg-primary transition-all duration-200 hover:bg-[#1C56B9] hover:-translate-y-[2px]">
+                  Contact
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- asha -->
+          <div class="bg-white rounded-2xl shadow-box border border-[#E2E8F0] overflow-hidden">
+            <!-- Header with Logo and Name -->
+            <div class="flex items-center p-6 border-b border-gray-100">
+              <div class="w-[70px] h-[70px] rounded-lg flex items-center justify-center mr-5">
+                <img src="img/images__1_-removebg-preview.png" alt="BRAC Logo" class="rounded-lg">
+              </div>
+              <div>
+                <div class="flex items-center  gap-2">
+                  <h2 class="text-xl font-bold text-text">Asha</h2>
+                  <i class="fa-solid fa-circle-check text-[#2CAA8E]"></i>
+                </div>
+                <div class="flex items-center text-[#718096]">
+                  <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <span>Dhaka, Bangladesh</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div class="p-6">
+              <h1 class="mb-6 text-base text-[#718096] leading-relaxed">
+                BRAC is dedicated to alleviating poverty by empowering the poor to bring about change in their own lives
+                through...
+              </h1>
+              <!-- tags -->
+              <div class="mb-6 flex gap-2">
+                <span
+                  class="text-primary bg-[#2e6fd91a] py-1 px-3 text-xs rounded-[20px] font-semibold">Education</span>
+                <span class="text-primary bg-[#2e6fd91a] py-1 px-3 text-xs rounded-[20px] font-semibold">Health</span>
+                <span
+                  class="text-primary bg-[#2e6fd91a] py-1 px-3 text-xs rounded-[20px] font-semibold">Microfinance</span>
+              </div>
+              <!-- start -->
+              <div class="mb-6 flex gap-[15px]">
+                <div class="w-full p-3 text-center bg-[#F8FAFC] rounded-lg">
+                  <h3 class="text-primary text-xl mb-1 font-bold">120</h3>
+                  <h3 class="text-[#718096] text-xs mb-1">Projects</h3>
+                </div>
+                <div class="w-full p-3 text-center bg-[#F8FAFC] rounded-lg">
+                  <h3 class="text-primary text-xl mb-1 font-bold">120</h3>
+                  <h3 class="text-[#718096] text-xs mb-1">Projects</h3>
+                </div>
+              </div>
+              <div class="flex justify-between gap-4">
+                <button
+                  class="py-[10px] font-semibold rounded-lg px-6 text-[15px] border border-primary text-primary transition-all duration-200 hover:bg-[#2e6fd90d]">
+                  View Profile
+                </button>
+                <button
+                  class="py-[10px] font-semibold text-white rounded-lg px-6 text-[15px] gap-2 flex items-center bg-primary transition-all duration-200 hover:bg-[#1C56B9] hover:-translate-y-[2px]">
+                  Contact
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- health care -->
+          <div class="bg-white rounded-2xl shadow-box border border-[#E2E8F0] overflow-hidden">
+            <!-- Header with Logo and Name -->
+            <div class="flex items-center p-6 border-b border-gray-100">
+              <div class="w-[70px] h-[70px] rounded-lg flex items-center justify-center mr-5">
+                <img src="img/images__2_-removebg-preview.png" alt="BRAC Logo" class="rounded-lg">
+              </div>
+              <div>
+                <div class="flex items-center  gap-2">
+                  <h2 class="text-xl font-bold text-text">CARE International
+                  </h2>
+                  <i class="fa-solid fa-circle-check text-[#2CAA8E]"></i>
+                </div>
+                <div class="flex items-center text-[#718096]">
+                  <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                  <span>Dhaka, Bangladesh</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div class="p-6">
+              <h1 class="mb-6 text-base text-[#718096] leading-relaxed">
+                BRAC is dedicated to alleviating poverty by empowering the poor to bring about change in their own lives
+                through...
+              </h1>
+              <!-- tags -->
+              <div class="mb-6 flex gap-2">
+                <span
+                  class="text-primary bg-[#2e6fd91a] py-1 px-3 text-xs rounded-[20px] font-semibold">Education</span>
+                <span class="text-primary bg-[#2e6fd91a] py-1 px-3 text-xs rounded-[20px] font-semibold">Health</span>
+                <span
+                  class="text-primary bg-[#2e6fd91a] py-1 px-3 text-xs rounded-[20px] font-semibold">Microfinance</span>
+              </div>
+              <!-- start -->
+              <div class="mb-6 flex gap-[15px]">
+                <div class="w-full p-3 text-center bg-[#F8FAFC] rounded-lg">
+                  <h3 class="text-primary text-xl mb-1 font-bold">120</h3>
+                  <h3 class="text-[#718096] text-xs mb-1">Projects</h3>
+                </div>
+                <div class="w-full p-3 text-center bg-[#F8FAFC] rounded-lg">
+                  <h3 class="text-primary text-xl mb-1 font-bold">120</h3>
+                  <h3 class="text-[#718096] text-xs mb-1">Projects</h3>
+                </div>
+              </div>
+              <div class="flex justify-between gap-4">
+                <button
+                  class="py-[10px] font-semibold rounded-lg px-6 text-[15px] border border-primary text-primary transition-all duration-200 hover:bg-[#2e6fd90d]">
+                  View Profile
+                </button>
+                <button
+                  class="py-[10px] font-semibold text-white rounded-lg px-6 text-[15px] gap-2 flex items-center bg-primary transition-all duration-200 hover:bg-[#1C56B9] hover:-translate-y-[2px]">
+                  Contact
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="py-[10px] font-semibold text-white rounded-lg px-6 text-[15px] gap-2 flex items-center bg-primary transition-all duration-200 hover:bg-[#1C56B9] hover:-translate-y-[2px]">
+          View All NGOs
+        </button>
+      </div>
+      </div>
+    </section>
+
+
+    <!-- Featured  section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-6xl px-4 md:px-6 mx-auto">
+        <!-- heading -->
+        <div class="flex flex-col text-center gap-4 mb-[60px]">
+          <h1 class="text-[32px] md:text-[40px] font-bold font-mon text-[#2D3748]">
+            Featured Projects
+          </h1>
+          <p class="text-[#718096]  text-[17.6px]">
+            Discover impactful development projects across different sectors
+          </p>
+        </div>
+
+        <div class="">
+          <div class="relative overflow-x-scroll border-b pb-5 mb-10 border-gray-200">
+            <div class="flex md:justify-center">
+              <!-- Tab Links -->
+              <button class="tab-link relative py-2.5 font-semibold px-6 text-sm text-start text-[#718096]"
+                data-tab="all">
+                All Projects
+              </button>
+              <button class="tab-link relative py-2.5 font-semibold px-6 text-sm text-start text-[#718096]"
+                data-tab="education">
+                Education
+              </button>
+              <button class="tab-link relative py-2.5 font-semibold px-6 text-sm text-start text-[#718096]"
+                data-tab="health">
+                Health
+              </button>
+              <button class="tab-link relative py-2.5 font-semibold px-6 text-sm text-start text-[#718096]"
+                data-tab="microfinance">
+                Microfinance
+              </button>
+              <button class="tab-link relative py-2.5 font-semibold px-6 text-sm text-start text-[#718096]"
+                data-tab="environment">
+                Environment
+              </button>
+              <button class="tab-link relative py-2.5 font-semibold px-6 text-sm text-start text-[#718096]"
+                data-tab="infrastructure">
+                Infrastructure
+              </button>
+
+              <!-- Animated underline -->
+              <span id="tab-indicator"
+                class="absolute bottom-0 left-0 h-0.5 bg-blue-500 transition-all duration-300"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-[30px] lg:grid-cols-3 mb-[60px]">
+          <!-- card 1 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 group relative">
+            <div class="overflow-hidden h-[200px]">
+              <img src="img/photo-1509062522246-3755977927d7.jpeg" alt="Education project"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <!-- Status Badge -->
+            <span
+              class="absolute top-4 right-4 inline-block px-3 py-1 text-sm font-semibold text-white bg-[#2e6fd9e6] rounded-full">Completed</span>
+
+            <!-- Content -->
+            <div class="p-6">
+              <!-- Organization -->
+              <div class="flex items-center gap-2 mb-4">
+                <img src="img/brac-logo.jpg" class="h-10 w-10 rounded-full" alt="">
+                <h3 class="text-sm text-[#2d3766] font-semibold">BRAC</h3>
+              </div>
+
+              <!-- Project Title -->
+              <h2 class="text-xl font-mon font-bold text-[#2d3766] mb-3">Rural Education Initiative</h2>
+
+              <!-- Description -->
+              <p class="text-[#718096] mb-5 text-base">
+                Provided access to quality education for 500 children
+                in remote rural areas through mobile schools and digital learning centers.
+              </p>
+
+              <!-- Location -->
+              <div class="flex">
+                <div class="flex gap-4">
+                  <div class="flex items-center gap-1 text-[#718096] text-sm">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Northern Region</span>
+                  </div>
+                  <div class="flex items-center gap-1 text-[#718096] text-sm">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>Jan-Jun 2023</span>
+                  </div>
+                </div>
+                <button
+                  class="py-2 font-semibold rounded-lg px-4 text-[14px] border border-primary text-primary transition-all duration-200 hover:bg-[#2e6fd90d] ">
+                  Details
+                </button>
+              </div>
+            </div>
+
+
+          </div>
+          <!-- card 2 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 group relative">
+            <div class="overflow-hidden h-[200px]">
+              <img src="img/photo-1509062522246-3755977927d7.jpeg" alt="Education project"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <!-- Status Badge -->
+            <span
+              class="absolute top-4 right-4 inline-block px-3 py-1 text-sm font-semibold text-white bg-[#2caa8ee6] rounded-full">Active</span>
+
+            <!-- Content -->
+            <div class="p-6">
+              <!-- Organization -->
+              <div class="flex items-center gap-2 mb-4">
+                <img src="img/360_F_225044038_mRRjftAXNNGeR3jK0IZnfmqTsiMEwrxZ-removebg-preview.png"
+                  class="h-10 w-10 rounded-full" alt="">
+                <h3 class="text-sm text-[#2d3766] font-semibold">CARE International</h3>
+              </div>
+
+              <!-- Project Title -->
+              <h2 class="text-xl font-mon font-bold text-[#2d3766] mb-3">Community Health Centers
+              </h2>
+
+              <!-- Description -->
+              <p class="text-[#718096] mb-5 text-base">
+                Provided access to quality education for 500 children
+                in remote rural areas through mobile schools and digital learning centers.
+              </p>
+
+              <!-- Location -->
+              <div class="flex">
+                <div class="flex gap-4">
+                  <div class="flex items-center gap-1 text-[#718096] text-sm">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Northern Region</span>
+                  </div>
+                  <div class="flex items-center gap-1 text-[#718096] text-sm">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>Jan-Jun 2023</span>
+                  </div>
+                </div>
+                <button
+                  class="py-2 font-semibold rounded-lg px-4 text-[14px] border border-primary text-primary transition-all duration-200 hover:bg-[#2e6fd90d] ">
+                  Details
+                </button>
+              </div>
+            </div>
+
+
+          </div>
+          <!-- card 3 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 group relative">
+            <div class="overflow-hidden h-[200px]">
+              <img src="img/photo-1509062522246-3755977927d7.jpeg" alt="Education project"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            </div>
+            <!-- Status Badge -->
+            <span
+              class="absolute top-4 right-4 inline-block px-3 py-1 text-sm font-semibold text-white bg-[#f6ad55e6] rounded-full">Upcoming</span>
+
+            <!-- Content -->
+            <div class="p-6">
+              <!-- Organization -->
+              <div class="flex items-center gap-2 mb-4">
+                <img src="img/images__1_-removebg-preview.png" class="h-10 w-10 rounded-full" alt="">
+                <h3 class="text-sm text-[#2d3766] font-semibold">ASA</h3>
+              </div>
+
+              <!-- Project Title -->
+              <h2 class="text-xl font-mon font-bold text-[#2d3766] mb-3">Women's Vocational Training</h2>
+
+              <!-- Description -->
+              <p class="text-[#718096] mb-5 text-base">
+                Provided access to quality education for 500 children
+                in remote rural areas through mobile schools and digital learning centers.
+              </p>
+
+              <!-- Location -->
+              <div class="flex">
+                <div class="flex gap-4">
+                  <div class="flex items-center gap-1 text-[#718096] text-sm">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Northern Region</span>
+                  </div>
+                  <div class="flex items-center gap-1 text-[#718096] text-sm">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>Jan-Jun 2023</span>
+                  </div>
+                </div>
+                <button
+                  class="py-2 font-semibold rounded-lg px-4 text-[14px] border border-primary text-primary transition-all duration-200 hover:bg-[#2e6fd90d] ">
+                  Details
+                </button>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+        <button
+          class="py-[10px] font-semibold text-white rounded-lg px-6 text-[15px] gap-2 flex items-center bg-primary transition-all duration-200 hover:bg-[#1C56B9] hover:-translate-y-[2px]">
+          Explore All Projects
+        </button>
+      </div>
+      </div>
+    </section>
+
+    <!-- testimonial section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-[1200px] mx-auto px-4 md:px-6">
+        <!-- Section Header -->
+        <div class="text-center mb-[60px]">
+          <h2 class="text-[32px] font-mon md:text-[40px] font-bold text-[#2d3748] mb-4">Authority Testimonials</h2>
+          <p class="text-lg text-[#718096]">Verified endorsements from government authorities for completed projects</p>
+        </div>
+
+        <!-- Testimonial Card -->
+        <div class="max-w-[800px] relative mx-auto bg-white p-10 rounded-2xl shadow-box border border-gray-200">
+          <i class="fa-solid fa-quote-right top-5 left-[30px] text-primary opacity-10 text-2xl absolute"></i>
+          <!-- Testimonial Content -->
+          <div class="mb-8">
+            <p class="text-xl text-[#2d3748] text-center leading-relaxed italic">
+              "The Rural Education Initiative by BRAC has significantly improved literacy rates in our region. Their
+              innovative approach to mobile schools has reached communities that previously had no access to education.
+              The impact on children's future prospects cannot be overstated."
+            </p>
+          </div>
+          <!-- Author Info -->
+          <div class="flex items-center justify-center">
+            <img src="./img/user.jpeg" class="rounded-full object-cover w-[55px] h-[55px]" alt="">
+            <div class="ml-4">
+              <p class="font-bold text-lg font-mon text-[#2d3748]">Ahmed Rahman</p>
+              <p class="text-sm text-[#718096]">Ministry of Education, Northern Region</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- icon -->
+  <script src="https://kit.fontawesome.com/2dfedb0ed0.js" crossorigin="anonymous"></script>
+
+  <!-- js file  -->
+  <script src="./script.js"></script>
 </body>
 
 </html>
