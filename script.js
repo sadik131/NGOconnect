@@ -52,6 +52,48 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+// card counter
+document.addEventListener('DOMContentLoaded', function() {
+  const statsSection = document.getElementById('stats-section');
+  const counters = document.querySelectorAll('[data-target]');
+  let animationStarted = false;
+  
+  // Animation function
+  function animateCounters() {
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      const duration = 2000; // 2 seconds
+      const increment = target / (duration / 16); // 16ms is roughly one frame
+      let current = 0;
+      
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          counter.textContent = Math.floor(current);
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target;
+        }
+      };
+      
+      updateCounter();
+    });
+  }
+  
+  // Intersection Observer to trigger animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animationStarted) {
+        animationStarted = true;
+        animateCounters();
+      }
+    });
+  }, { threshold: 0.5 }); // Trigger when 50% of section is visible
+  
+  observer.observe(statsSection);
+});
+
+
 const sr = ScrollReveal({
   origin: "bottom",
   distance: "60px",
