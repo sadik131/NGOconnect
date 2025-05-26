@@ -130,3 +130,28 @@ sr.reveal(".cards__card > div", {
   distance: "100px",
   interval: 200
 })
+
+
+
+// tailwind config
+
+ tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2e6fd9',
+            secondary: '#2CAA8E',
+            text: '#2d3748',
+          },
+          fontFamily: {
+            mon: ['Montserrat', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'custom': '0 1px 3px rgba(0, 0, 0, 0.1)',
+            "lg": "0 10px 15px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.05)",
+            "box": "0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.08)",
+          }
+        }
+      }
+    }

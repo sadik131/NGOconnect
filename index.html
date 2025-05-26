@@ -17,29 +17,6 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#2e6fd9',
-            secondary: '#2CAA8E',
-            text: '#2d3748',
-          },
-          fontFamily: {
-            mon: ['Montserrat', 'sans-serif'],
-            inter: ['Inter', 'sans-serif'],
-          },
-          boxShadow: {
-            'custom': '0 1px 3px rgba(0, 0, 0, 0.1)',
-            "lg": "0 10px 15px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.05)",
-            "box": "0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.08)",
-          }
-        }
-      }
-    }
-  </script>
-
 </head>
 
 <body class="bg-[#F6F4F1] md:p-2 font-inter relative">
@@ -238,33 +215,47 @@
     <section class="py-20 bg-[#F8FAFC]" id="stats-section">
       <div class="max-w-6xl px-4 md:px-6 flex flex-col lg:flex-row gap-10 mx-auto cards__card">
         <!-- card1 -->
-        <div class="w-full p-8 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
-          <div class="text-center">
-            <p class="text-5xl font-mon font-extrabold text-primary mb-4 overflow-visible">
-              <span class="count" data-target="500">0</span>+
-            </p>
-            <p class="text-lg font-bold text-[#718096]">Verified NGOs</p>
+        <div class="w-full bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+          <div class="border-t-[5px] border-[#2e6fd9]">
+            <div class="w-full p-8 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
+              <div class="text-center">
+                <p class="text-5xl font-mon font-extrabold text-[#2e6fd9] mb-4 overflow-visible">
+                  <span class="count" data-target="500">0</span>+
+                </p>
+                <p class="text-lg font-semibold text-[#718096]">Verified NGOs</p>
+              </div>
+            </div>
           </div>
         </div>
         <!-- card-2 -->
-        <div class="w-full p-8 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
-          <div class="text-center">
-            <p class="text-5xl font-mon font-extrabold text-secondary mb-4 overflow-visible">
-              <span class="count" data-target="120">0</span>+
-            </p>
-            <p class="text-lg font-bold text-[#718096]">Active Projects</p>
+        <div class="w-full bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+          <div class="border-t-[5px] border-[#2CAA8E]">
+            <div class="w-full p-8 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
+              <div class="text-center">
+                <p class="text-5xl font-mon font-extrabold text-[#2CAA8E] mb-4 overflow-visible">
+                  <span class="count" data-target="1200">0</span>+
+                </p>
+                <p class="text-lg font-semibold text-[#718096]">Active Projects</p>
+              </div>
+            </div>
           </div>
         </div>
+        
         <!-- card-3 -->
-
-        <div class="w-full p-8 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
-          <div class="text-center">
-            <p class="text-5xl font-mon font-extrabold text-[#DD6B20] mb-4 overflow-visible">
-              <span class="count" data-target="75">0</span>+
-            </p>
-            <p class="text-lg font-bold text-[#718096]">Partnering Authorities</p>
+        <div
+          class="w-full bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+          <div class="border-t-[5px] border-[#DD6B20]">
+            <div class="w-full p-8 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
+              <div class="text-center">
+                <p class="text-5xl font-mon font-extrabold text-[#DD6B20] mb-4 overflow-visible">
+                  <span class="count" data-target="75">0</span>+
+                </p>
+                <p class="text-lg font-semibold text-[#718096]">Partnering Authorities</p>
+              </div>
+            </div>
           </div>
         </div>
+       
     </section>
 
     <!-- Directory section -->
@@ -578,7 +569,7 @@
         </div>
 
         <!-- cards -->
-        <div class="cards__card grid grid-cols-1 md:grid-cols-2 gap-[30px] lg:grid-cols-3 mb-[60px]">
+        <div class="cards__card grid grid-cols-1 gap-[30px] lg:grid-cols-3 mb-[60px]">
           <!-- card 1 -->
           <div class="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 group relative">
             <div class="overflow-hidden h-[200px]">
@@ -845,18 +836,18 @@
               Quick Links
             </h3>
             <ul class="flex flex-col gap-[10px]">
-              <li class="py-1"><a href="#"
-                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">Home</a></li>
-              <li class="py-1"><a href="#"
-                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">About Us</a></li>
-              <li class="py-1"><a href="#"
-                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">NGO Directory</a></li>
-              <li class="py-1"><a href="#"
-                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">Projects</a></li>
-              <li class="py-1"><a href="#"
-                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">Testimonials</a></li>
-              <li class="py-1"><a href="#"
-                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">FAQs</a></li>
+              <li class="py-1 transition-all duration-200 hover:-translate-x-[-5px]"><a href="#"
+                  class="hover:text-white">Home</a></li>
+              <li class="py-1 transition-all duration-200 hover:-translate-x-[-5px]"><a href="#"
+                  class="hover:text-white">About Us</a></li>
+              <li class="py-1 transition-all duration-200 hover:-translate-x-[-5px]"><a href="#"
+                  class="hover:text-white">NGO Directory</a></li>
+              <li class="py-1 transition-all duration-200 hover:-translate-x-[-5px]"><a href="#"
+                  class="hover:text-white">Projects</a></li>
+              <li class="py-1 transition-all duration-200 hover:-translate-x-[-5px]"><a href="#"
+                  class="hover:text-white">Testimonials</a></li>
+              <li class="py-1 transition-all duration-200 hover:-translate-x-[-5px]"><a href="#"
+                  class="hover:text-white">FAQs</a></li>
             </ul>
           </div>
 
@@ -866,19 +857,19 @@
               Services
             </h3>
             <ul class="flex flex-col gap-[10px]">
-              <li class="py-1"><a href="#"
-                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">For NGOs</a></li>
-              <li class="py-1"><a href="#"
-                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">For Authorities</a>
+              <li class="py-1 transition-all duration-200 hover:-translate-x-[-5px]"><a href="#"
+                  class="hover:text-white">For NGOs</a></li>
+              <li class="py-1 transition-all duration-200 hover:-translate-x-[-5px]"><a href="#"
+                  class="hover:text-white">For Authorities</a>
               </li>
-              <li class="py-1"><a href="#"
-                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">Project
+              <li class="py-1 transition-all duration-200 hover:-translate-x-[-5px]"><a href="#"
+                  class="hover:text-white">Project
                   Verification</a></li>
-              <li class="py-1"><a href="#"
-                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">Impact Reporting</a>
+              <li class="py-1 transition-all duration-200 hover:-translate-x-[-5px]"><a href="#"
+                  class="hover:text-white">Impact Reporting</a>
               </li>
-              <li class="py-1"><a href="#"
-                  class="hover:text-white transition-transform duration-200 hover:translate-x-2">Partnership
+              <li class="py-1 transition-all duration-200 hover:-translate-x-[-5px]"><a href="#"
+                  class="hover:text-white">Partnership
                   Opportunities</a></li>
             </ul>
           </div>
